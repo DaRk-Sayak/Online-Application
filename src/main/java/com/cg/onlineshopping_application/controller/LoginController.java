@@ -33,52 +33,23 @@ public class LoginController
 
     @Autowired
     ILoginServiceImp loginService;
-    
-//    @PostMapping("/adduser")
-//    public SuccessMessageDto addUser(@RequestBody LoginDto loginDto) throws Exception
-//    {
-//            User user= loginService.addUser(loginDto);
-//            return new SuccessMessageDto(ShoppingConstants.USER_ADDED+ user.getUserId());
-//    }
-    
     @PostMapping("/adduser")
     public User addUser(@RequestBody LoginDto loginDto) throws Exception
     {
             User user= loginService.addUser(loginDto);
             return user;
     }
-    
-//    @GetMapping("/getlogindata/{userEmail}")
-//    public User getLoginData(@PathVariable("useremail") String userEmail) throws Exception
-//    {
-//        User user = loginService.getLoginData(userEmail);
-//        return user;
-//    }
-    
     @GetMapping("/getlogindata/{userEmail}")
     public User getLoginData(@PathVariable("userEmail") String username) throws Exception
     {
         User user = loginService.getLoginData(username);
         return user;
     }
-    
-//    @PostMapping("/adduser")
-//    public ResponseEntity<User> addUser(@RequestBody LoginDto loginDto) throws Exception
-//    {
-//        try {
-//            User user= loginService.addUser(loginDto);
-//            return new ResponseEntity<>(user, HttpStatus.OK);
-//        }
-//        catch (Exception e) {
-//            return ResponseEntity.badRequest().build();
-//        }
-//    }
-    
+
     @DeleteMapping("/removeuser/{id}")
     public SuccessMessageDto removeAddress(@PathVariable("id") Integer userId) throws UserIdException
     {
         loginService.removeUser(userId);
         return new SuccessMessageDto(ShoppingConstants.USER_REMOVED);
     }
-    
 }

@@ -9,7 +9,6 @@ import com.cg.onlineshopping_application.exception.ValidateCartException;
 
 @RestControllerAdvice
 public class CartAdvice {
-	
 
     @ExceptionHandler(value = { ValidateCartException.class })
     public ResponseEntity<String> handleException1(Exception ex) {

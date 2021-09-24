@@ -32,7 +32,6 @@ public class CartController {
 	public SuccessMessageDto addItemToCart(@PathVariable("customerId") Integer customerId,@PathVariable("productId") Integer productId) throws CustomerNotFoundException, ProductNotFoundException
 	{
 		cartService.addProductToCart(customerId,productId);
-		
 		return new SuccessMessageDto(ShoppingConstants.CART_ITEM_ADDED);
 	}
 	
@@ -44,7 +43,6 @@ public class CartController {
 
 	@DeleteMapping("removecartitem/{cartId}")
 	public SuccessMessageDto removeCartItem(@PathVariable("cartId") Integer cartId) {
-		
 		cartService.removeProductFromCart(cartId);
 		return new SuccessMessageDto(ShoppingConstants.CART_ITEM_REMOVED);
 	}

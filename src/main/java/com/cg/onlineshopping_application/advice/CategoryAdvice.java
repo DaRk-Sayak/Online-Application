@@ -14,6 +14,7 @@ import com.cg.onlineshopping_application.exception.ValidateCategoryException;
 
 @RestControllerAdvice
 public class CategoryAdvice {
+
 	@ExceptionHandler(value = { ValidateCategoryException.class })
 	public ResponseEntity<String> handleException1(Exception ex) {
 		return new ResponseEntity<String>(ex.getMessage(), HttpStatus.BAD_REQUEST);

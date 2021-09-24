@@ -33,15 +33,6 @@ public class CustomerController
     
         @Autowired
         ICustomerServiceImp customerService;
-        
-        
-//        @PostMapping("/addcustomer")
-//        public SuccessMessageDto addCustomer(@RequestBody CustomerDto customerDto) throws ValidateCustomerException, UserNotFoundException
-//        {
-//            Customer customer= customerService.addCustomer(customerDto);
-//            return new SuccessMessageDto(ShoppingConstants.CUSTOMER_ADDED+ customer.getCustomerId());
-//        }
-        
         @PostMapping("/addcustomer")
         public Customer addCustomer(@RequestBody CustomerDto customerDto) throws ValidateCustomerException, UserNotFoundException
         {

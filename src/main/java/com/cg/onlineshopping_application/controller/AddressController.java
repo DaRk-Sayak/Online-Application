@@ -27,20 +27,12 @@ import com.cg.onlineshopping_application.util.ShoppingConstants;
 
 @RestController
 @RequestMapping("/address")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class AddressController 
 {
     @Autowired
     IAddressServiceImp addressService;
-    
-    
-//    @PostMapping("/addaddress")
-//    public SuccessMessageDto addAddress(@RequestBody AddressDto addressDto) throws ValidateAddressException, CustomerNotFoundException
-//    {
-//        Address address= addressService.addAddress(addressDto);
-//        return new SuccessMessageDto(ShoppingConstants.ADDRESS_ADDED+ address.getAddressId());
-//    }
-    
+
     @PostMapping("/addaddress")
     public Address addAddress(@RequestBody AddressDto addressDto) throws ValidateAddressException, CustomerNotFoundException
     {
@@ -54,8 +46,7 @@ public class AddressController
         addressService.removeAddress(addressId);
         return new SuccessMessageDto(ShoppingConstants.ADDRESS_REMOVED);
     }
-    
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @PutMapping("/updateaddress")
     public SuccessMessageDto updateAddress(@RequestBody AddressDto addressdto) throws AddressIdException, ValidateAddressException, CustomerNotFoundException 
     {

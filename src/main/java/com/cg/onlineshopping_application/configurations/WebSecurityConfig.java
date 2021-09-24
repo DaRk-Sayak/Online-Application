@@ -21,19 +21,10 @@ import com.cg.onlineshopping_application.service.ILoginServiceImp;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-
-//    @Autowired
-//    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    
     @Bean
     public UserDetailsService userDetailsService() {
         return new ILoginServiceImp();
     }
-     
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -53,8 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
-    
-   
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -65,12 +55,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .authenticated()
                 .and()
                 .csrf().disable();
-                //.cors().disable();
-                //.formLogin()
-                //.usernameParameter("username")
-                //.passwordParameter("password")
-                //.and()
-                //.logout();
     }
  
 }

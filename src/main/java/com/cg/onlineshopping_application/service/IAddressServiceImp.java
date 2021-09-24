@@ -41,8 +41,7 @@ public class IAddressServiceImp implements IAddressService {
 		
 	}
 
-	public Address updateAddress(AddressDto addressDto)
-			throws AddressIdException, ValidateAddressException, CustomerNotFoundException {
+	public Address updateAddress(AddressDto addressDto) throws AddressIdException, ValidateAddressException, CustomerNotFoundException {
 		validateAddress(addressDto);
 		Optional<Address> optAddress = addressDao.findById(addressDto.getAddressId());
 		if (!optAddress.isPresent())

@@ -31,16 +31,14 @@ import com.cg.onlineshopping_application.exception.ValidateProductException;
 import com.cg.onlineshopping_application.service.IProductServiceImp;
 import com.cg.onlineshopping_application.util.ShoppingConstants;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/product")
 public class ProductController 
 {
     @Autowired
     IProductServiceImp prodservice;
-    
-    
-    
+
     @PostMapping("/addproduct")
     public ResponseEntity<String> addProduct(@Valid @RequestBody ProductDto productdto, BindingResult br)
             throws ValidateProductException {
@@ -60,7 +58,6 @@ public class ProductController
         }
     }
 
-    
     @DeleteMapping("/removeproduct/{productId}")
     public ResponseEntity<String>  removeProduct(@PathVariable("productId") Integer productId) throws ValidateProductException {
     System.out.println("Product ID:"+productId);
@@ -70,9 +67,8 @@ public class ProductController
         throw new ValidateProductException(ex.getMessage());// "Account Not Deleted");
     }
     return new ResponseEntity<String>("Product Deleted.", HttpStatus.OK);
-}
-    
-    
+    }
+
     @PutMapping("/updateproduct")
     public ResponseEntity<String> updateProduct(@RequestBody ProductDto pro) throws  ValidateProductException {
         System.out.println("Product :"+pro);
@@ -84,24 +80,20 @@ public class ProductController
         return new ResponseEntity<String>("Product Updated.", HttpStatus.OK);
     }
 
-    
-    
     @GetMapping("/getallproducts")
     public ResponseEntity<List<Product>> viewAllProducts() throws ValidateProductException 
     {
         List<Product> productList = prodservice.viewAllProducts();
         return new ResponseEntity<List<Product>>(productList, HttpStatus.OK);
     }
-    
-    
+
     @GetMapping("/getproductbyname/{productName}")
     public ResponseEntity<Product> viewProduct(@PathVariable("productName") String productName) throws ValidateProductException
     {
         Product p=prodservice.viewProduct(productName);   
         return new ResponseEntity<Product>(p, HttpStatus.OK);
     }
-    
-    @CrossOrigin(origins = "http://localhost:4200")
+
     @GetMapping("/getproductbycatid/{catId}")
     public ResponseEntity<List<Product>> viewProductsByCategory(@PathVariable("catId") Integer catId) throws ValidateProductException
     {

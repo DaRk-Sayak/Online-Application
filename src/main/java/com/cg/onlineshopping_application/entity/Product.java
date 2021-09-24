@@ -34,12 +34,7 @@ public class Product
 	
 	@ManyToOne
 	private Category category;
-	
-	/*
-	 * @OneToOne(mappedBy="products") private Cart cart;
-	 */
 
-	
 	public Integer getProductId() {
 		return productId;
 	}

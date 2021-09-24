@@ -29,7 +29,6 @@ public class ILoginServiceImp implements ILoginService, UserDetailsService
         validateUser(loginDto);
         User user = new User();
         user.setUserEmail(loginDto.getUserEmail());
-        //user.setPassword(BCryptPasswordEncoder.encode(loginDto.getPassword()));
         user.setPassword(loginDto.getPassword());
         user.setRole(loginDto.getRole());
         return userDao.save(user);
@@ -74,21 +73,4 @@ public class ILoginServiceImp implements ILoginService, UserDetailsService
          
         return new MyUserDetails(user);
     }
-    
-//    public String login(User login) throws Exception {
-//        try {
-//            Optional<User> u = Optional.of(userDao.getUserByUsername(login.getUserEmail()));
-//            if(u.isPresent()) {
-//                User obj = u.get();
-//                if(login.getPassword().equals(obj.getPassword())) {
-//                    userDao.save(login);
-//                    return obj.getRole();
-//                }
-//            }
-//        }
-//        catch(Exception e) {
-//            throw new Exception("Invalid Credintials");
-//        }
-//        return null;
-//    }
 }

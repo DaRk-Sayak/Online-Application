@@ -12,6 +12,4 @@ public class ValidateUserException extends Exception{
 		super(message);
 	}
 
-	
-
 }
