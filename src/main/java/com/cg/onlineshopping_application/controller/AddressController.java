@@ -27,8 +27,7 @@ import com.cg.onlineshopping_application.util.ShoppingConstants;
 
 @RestController
 @RequestMapping("/address")
-@CrossOrigin(origins = "*")
-public class AddressController 
+public class AddressController
 {
     @Autowired
     IAddressServiceImp addressService;

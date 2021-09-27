@@ -27,7 +27,6 @@ import com.cg.onlineshopping_application.util.ShoppingConstants;
 
 @RestController
 @RequestMapping("/customer")
-@CrossOrigin
 public class CustomerController 
 {
     

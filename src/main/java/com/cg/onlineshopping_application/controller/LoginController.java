@@ -26,7 +26,6 @@ import com.cg.onlineshopping_application.util.ShoppingConstants;
 
 @RestController
 @RequestMapping("/login")
-@CrossOrigin
 public class LoginController 
 {
     
